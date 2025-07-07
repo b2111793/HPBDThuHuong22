@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./static/img/heart.png" />
+    <!-- SweetAlert2 CSS + JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Trang chủ</title>
+  </head>
+  <body>
+    <script>
+      function askPassword() {
+        Swal.fire({
+          title: "Nhập password:",
+          input: "password",
+          inputPlaceholder: "Nhập mật khẩu tại đây...",
+          showCancelButton: false,
+          confirmButtonText: "OK",
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          preConfirm: (password) => {
+            if (password === "thuhuong9703") {
+              window.location.replace("happyBirthday.html");
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Sai mật khẩu",
+                text: "Vui lòng nhập lại!",
+              }).then(() => {
+                askPassword(); // Gọi lại để nhập lại
+              });
+            }
+          },
+        });
+      }
+
+      askPassword(); // Gọi hàm khi trang vừa tải
+    </script>
+  </body>
+</html>

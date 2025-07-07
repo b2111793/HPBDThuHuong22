@@ -1,0 +1,112 @@
+<html
+  __fvdsurfcanyoninserted="1"
+  class="clickberry-extension clickberry-extension-standalone clickberry-extension clickberry-extension-standalone clickberry-extension clickberry-extension-standalone"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 0. Phần icon của website (thay đổi link đến icon nếu bạn muốn sửa nó) -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="./static/img/birthdayCake.png"
+    />
+
+    <!-- 1. Đây là phần title của website -->
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="./static/css/style.css" />
+    <link rel="stylesheet" href="./static/css/happyBirthday.css" />
+    <script>
+      window.open = function () {};
+      window.print = function () {};
+      // Support hover state for mobile.
+      if (false) {
+        window.ontouchstart = function () {};
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"
+    ></script>
+    <meta content="clickberry-extension-here" />
+  </head>
+
+  <body>
+    <div class="buttons">
+      <!-- Chữ ở menu bạn có thể sửa lại theo ý của bạn -->
+      <a href="./happyBirthday.html" class="btn btn-bir">Sinh nhật</a>
+      <a href="./timeLine.html" class="btn btn-gallery">Thời gian</a>
+      <a href="./picturesList.html" class="btn btn-timeline">Kỷ niệm</a>
+    </div>
+    <div class="container">
+      <!-- 2. Dòng chữ Happy Birthday
+            Nếu bạn muốn thêm chữ vào thì phải thay đổi css tương ứng cho nó -->
+      <div class="balloon">
+        <div data-word="Hope"><span>H</span></div>
+        <!--Hy vọng-->
+        <div data-word="All"><span>A</span></div>
+        <!--Tất cả-->
+        <div data-word="Pleasures"><span>P</span></div>
+        <!--Niềm vui-->
+        <div data-word="Pour"><span>P</span></div>
+        <!--Tuôn trào / Đổ về-->
+        <div data-word="Your way."><span>Y</span></div>
+        <!--Về phía bạn-->
+        <div data-word="Be"><span>B</span></div>
+        <!--Hãy là-->
+        <div data-word="Inspired,"><span>I</span></div>
+        <!--Được truyền cảm hứng-->
+        <div data-word="Remembered,"><span>R</span></div>
+        <!--Được ghi nhớ-->
+        <div data-word="Treasured,"><span>T</span></div>
+        <!--Được trân quý-->
+        <div data-word="Happy,"><span>H</span></div>
+        <!--Hạnh phúc-->
+        <div data-word="Daring,"><span>D</span></div>
+        <!--Táo bạo / Dũng cảm-->
+        <div data-word="Awesome,"><span>A</span></div>
+        <!--Tuyệt vời-->
+        <div data-word="You!"><span>Y</span></div>
+        <!--Chính bạn!-->
+      </div>
+      <div class="avatar">
+        <!-- 3. Avatar của người bạn muốn gởi lời chúc -->
+        <img
+          src="./static/img/MayAnh.jpg"
+          alt="MayAnh.jpg"
+          class="avatar__img"
+          onclick="showMessage()"
+        />
+        <!-- 4. Tên của người đó -->
+        <h1
+          class="avatar__title"
+          data-message="Mong mọi niềm vui sẽ hướng về phía em.
+            Luôn được truyền cảm hứng, được nhớ đến, được trân quý, hạnh phúc, dũng cảm và tuyệt vời – chính em!
+            "
+        >
+          Thu Hường
+        </h1>
+      </div>
+
+      <!-- 5. Phần nhạc -->
+      <audio id="player" autoplay loop>
+        <source src="./static/mp3/HappyBirthday.mp3" type="audio/mp3" />
+      </audio>
+    </div>
+    <script>
+      if (document.location.search.match(/type=embed/gi)) {
+        window.parent.postMessage("resize", "*");
+      }
+      function showMessage() {
+        // 6. Lời nhắn hiện ra khi bấm vào tên hoặc avatar
+        swal({
+          title: "Lời chúc gửi đến Thu Hường", // Tiêu đề của popup
+          text: "Hôm nay là sinh nhật em. Chúc mừng em đã bước sang tuổi mới, ở độ tuổi mà em sẽ phải đối diện với nhiều thử thách khó khăn, nhưng anh tin em rồi sẽ vượt qua được tất cả. Anh mong những điều tốt lành nhất sẽ đến với em mỗi ngày. Chúc em sinh nhật thật vui vẻ nhé! Người yêu em Anh Ha", // Nội dung lời nhắn
+          button: {
+            text: "❤️️",
+          },
+        });
+      }
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  </body>
+</html>
